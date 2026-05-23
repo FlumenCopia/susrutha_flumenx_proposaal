@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susrutha Ayurveda — Digital Presence Masterplan | FlumenX</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #0A1F12;
+  --forest-mid: #143322;
+  --forest-light: #1A4A32;
+  --gold: #B8943A;
+  --gold-light: #C9A84C;
+  --gold-pale: #E8D5A0;
+  --teal: #5BA8A8;
+  --sage: #7BA89A;
+  --cream: #F5F0E8;
+  --parchment: #EDE4D2;
+  --ink: #1A1A1A;
+  --muted: #6B6B6B;
+  --rose: #C17A6F;
+  --white: #FFFFFF;
+  --warn: #E8A050;
+  --success: #5BA868;
+  --danger: #C1504A;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+/* ——— SCROLL PROGRESS BAR ——— */
+#scroll-progress-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 3px;
+  background: rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+#scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 60%, var(--sage) 100%);
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(184,148,58,0.5);
+}
+#scroll-progress-label {
+  position: fixed;
+  top: 6px;
+  right: 16px;
+  z-index: 9999;
+  font-family: 'Bebas Neue';
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* ——— TOP HEADER ——— */
+.top-bar {
+  background: var(--forest);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--gold-pale);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.top-bar .brand { color: var(--gold); font-family: 'Bebas Neue'; font-size: 16px; letter-spacing: 3px; }
+
+/* ——— HERO ——— */
+.hero {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 50%, var(--forest-light) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 40px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8943A' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.hero-badge {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 6px 20px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'DM Sans';
+  margin-bottom: 24px;
+  border-radius: 2px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond';
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero h1 span { color: var(--gold); font-style: italic; }
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--sage);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.hero-meta {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+  font-family: 'Bebas Neue';
+  font-size: 40px;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hero-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-nav a {
+  padding: 10px 24px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  font-family: 'DM Sans';
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.hero-nav a.primary { background: var(--gold); color: var(--forest); }
+.hero-nav a.primary:hover { background: var(--gold-light); }
+.hero-nav a.ghost { border: 1px solid rgba(255,255,255,0.3); color: var(--white); }
+.hero-nav a.ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ——— NAV TABS ——— */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--forest);
+  border-bottom: 1px solid rgba(184,148,58,0.3);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.sticky-nav a {
+  flex-shrink: 0;
+  padding: 16px 24px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.sticky-nav a:hover, .sticky-nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ——— SECTIONS ——— */
+.section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+.section-wide { padding: 80px 40px; }
+.section-bg-dark { background: var(--forest); }
+.section-bg-parchment { background: var(--parchment); }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.section-title {
+  font-family: 'Cormorant Garamond';
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--forest);
+}
+.section-title.light { color: var(--white); }
+.section-title em { color: var(--gold); font-style: italic; }
+.section-body { font-size: 15px; color: var(--muted); max-width: 700px; line-height: 1.8; }
+.section-body.light { color: rgba(255,255,255,0.7); }
+
+/* ——— AUDIT GRID ——— */
+.audit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-top: 40px; }
+.audit-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.audit-card-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.audit-icon { font-size: 22px; }
+.audit-card-header h3 { font-family: 'Cormorant Garamond'; font-size: 20px; font-weight: 600; }
+.audit-card-header .url { font-size: 11px; color: var(--teal); letter-spacing: 0.5px; }
+.audit-score-bar {
+  height: 4px;
+  background: var(--parchment);
+  margin: 0;
+}
+.audit-score-bar .fill { height: 100%; }
+.fill-low { background: var(--danger); }
+.fill-mid { background: var(--warn); }
+.fill-ok { background: var(--success); }
+.audit-card-body { padding: 20px 24px; }
+.audit-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.audit-item .icon { flex-shrink: 0; margin-top: 2px; }
+.audit-item .txt { color: var(--muted); }
+.audit-item.miss .icon { color: var(--danger); }
+.audit-item.warn .icon { color: var(--warn); }
+.audit-item.ok .icon { color: var(--success); }
+.audit-card-footer {
+  background: var(--parchment);
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--forest);
+}
+
+/* ——— KEYWORD TABLE ——— */
+.kw-table { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 13.5px; }
+.kw-table thead tr { background: var(--forest); color: var(--gold); }
+.kw-table th { padding: 14px 16px; text-align: left; font-weight: 600; letter-spacing: 1px; font-size: 11px; text-transform: uppercase; }
+.kw-table td { padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.kw-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+.kw-table tbody tr:hover { background: rgba(184,148,58,0.05); }
+.vol-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.vol-high { background: rgba(91,168,104,0.15); color: var(--success); }
+.vol-mid { background: rgba(232,160,80,0.15); color: var(--warn); }
+.vol-low { background: rgba(107,107,107,0.12); color: var(--muted); }
+.diff-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.diff-low { background: rgba(91,168,104,0.15); color: var(--success); }
+.diff-mid { background: rgba(232,160,80,0.15); color: var(--warn); }
+.diff-hard { background: rgba(193,80,74,0.15); color: var(--danger); }
+.intent-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.intent-t { background: rgba(91,168,168,0.15); color: var(--teal); }
+.intent-i { background: rgba(184,148,58,0.12); color: var(--gold); }
+.intent-c { background: rgba(193,117,111,0.15); color: var(--rose); }
+
+/* ——— TIMELINE ——— */
+.timeline { position: relative; margin-top: 48px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--teal), var(--sage));
+}
+.tl-item { display: flex; gap: 32px; margin-bottom: 48px; }
+.tl-dot {
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.tl-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--gold);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.tl-phase {
+  font-family: 'Bebas Neue';
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-align: center;
+}
+.tl-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  padding: 28px 32px;
+  flex: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.tl-card h3 {
+  font-family: 'Cormorant Garamond';
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+.tl-card .tl-time {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.tl-tasks { list-style: none; }
+.tl-tasks li {
+  padding: 6px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
+}
+.tl-tasks li:last-child { border-bottom: none; }
+.tl-tasks li::before { content: '→'; color: var(--teal); flex-shrink: 0; }
+.tl-deliverables { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.del-tag {
+  padding: 4px 12px;
+  background: var(--parchment);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: 0.5px;
+}
+
+/* ——— SAGEO SECTION ——— */
+.sageo-card {
+  background: linear-gradient(135deg, var(--forest) 0%, #0D2B20 100%);
+  border: 1px solid rgba(184,148,58,0.3);
+  border-radius: 6px;
+  padding: 40px;
+  margin-top: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.sageo-card::before {
+  content: 'SAG·EO';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Bebas Neue';
+  font-size: 80px;
+  color: rgba(184,148,58,0.06);
+  letter-spacing: 10px;
+}
+.sageo-badge {
+  display: inline-block;
+  background: rgba(184,148,58,0.15);
+  border: 1px solid rgba(184,148,58,0.4);
+  color: var(--gold);
+  padding: 4px 16px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.sageo-card h3 {
+  font-family: 'Cormorant Garamond';
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.sageo-card h3 span { color: var(--gold); }
+.sageo-card p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.8; margin-bottom: 24px; }
+.sageo-layers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 768px) { .sageo-layers { grid-template-columns: repeat(2, 1fr); } }
+.sageo-layer {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,148,58,0.2);
+  border-radius: 4px;
+  padding: 16px;
+}
+.sageo-layer .num { font-family: 'Bebas Neue'; font-size: 36px; color: var(--gold); line-height: 1; }
+.sageo-layer .name { font-size: 11px; font-weight: 600; color: var(--white); letter-spacing: 1px; text-transform: uppercase; margin: 4px 0; }
+.sageo-layer .desc { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.sageo-why {
+  margin-top: 24px;
+  background: rgba(184,148,58,0.08);
+  border-left: 3px solid var(--gold);
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+}
+.sageo-why p { color: rgba(255,255,255,0.8); font-size: 13.5px; margin: 0; }
+
+/* ——— DOCTORS SECTION ——— */
+.doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+.doc-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  position: relative;
+}
+.doc-initial {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest-mid), var(--forest-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond';
+  font-size: 26px;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.doc-card h3 { font-family: 'Cormorant Garamond'; font-size: 22px; font-weight: 600; color: var(--forest); margin-bottom: 4px; }
+.doc-card .qual { font-size: 12px; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 4px; font-weight: 600; }
+.doc-card .spec { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+.doc-gap-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--danger); font-weight: 600; margin-bottom: 12px; }
+.doc-gap-item {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.doc-gap-item::before { content: '✗'; color: var(--danger); flex-shrink: 0; }
+.doc-opp-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--success); font-weight: 600; margin: 16px 0 12px; }
+.doc-opp-item {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.doc-opp-item::before { content: '✓'; color: var(--success); flex-shrink: 0; }
+.doc-note {
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: rgba(184,148,58,0.08);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--gold);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ——— PRICING CARDS ——— */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+.price-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+.price-card.featured {
+  border: 2px solid var(--gold);
+  transform: scale(1.02);
+}
+.price-card.featured:hover { transform: scale(1.02) translateY(-4px); }
+.price-card-header {
+  background: var(--forest);
+  padding: 28px 28px 20px;
+  position: relative;
+}
+.featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gold);
+  color: var(--forest);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+.price-card-header .pkg { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+.price-card-header .name { font-family: 'Cormorant Garamond'; font-size: 28px; color: var(--white); font-weight: 300; line-height: 1.1; margin-bottom: 16px; }
+.price-amount { display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px; }
+.price-symbol { color: var(--gold); font-size: 20px; font-weight: 600; }
+.price-num { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; }
+.price-period { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+.price-card-body { padding: 24px 28px; }
+.feature-item {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.feature-item:last-child { border-bottom: none; }
+.feature-item .chk { color: var(--success); flex-shrink: 0; font-size: 12px; }
+.price-card-footer { padding: 20px 28px 28px; }
+.price-cta {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  font-family: 'DM Sans';
+}
+.price-cta.primary { background: var(--gold); color: var(--forest); }
+.price-cta.primary:hover { background: var(--gold-light); }
+.price-cta.ghost { border: 1.5px solid var(--forest); color: var(--forest); background: transparent; }
+.price-cta.ghost:hover { background: var(--forest); color: var(--white); }
+
+/* ——— KPI SECTION ——— */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 32px; }
+.kpi-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  padding: 24px;
+  text-align: center;
+}
+.kpi-card .phase { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+.kpi-card .num { font-family: 'Bebas Neue'; font-size: 40px; color: var(--forest); line-height: 1; margin-bottom: 4px; }
+.kpi-card .metric { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ——— TABS ——— */
+.tab-nav { display: flex; gap: 0; border-bottom: 2px solid rgba(0,0,0,0.08); margin-bottom: 32px; overflow-x: auto; }
+.tab-btn {
+  flex-shrink: 0;
+  padding: 14px 28px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  color: var(--muted);
+  transition: all 0.3s;
+  font-family: 'DM Sans';
+}
+.tab-btn.active { color: var(--forest); border-bottom-color: var(--gold); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ——— EXEC DASHBOARD ——— */
+.exec-strip {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.exec-metric {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  padding: 16px 24px;
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+.exec-metric .em-val { font-family: 'Bebas Neue'; font-size: 32px; color: var(--forest); line-height: 1; }
+.exec-metric .em-lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+.task-group { margin-bottom: 28px; }
+.task-group-title {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--forest);
+  padding: 10px 0;
+  border-bottom: 2px solid var(--parchment);
+  margin-bottom: 12px;
+}
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
+  font-size: 13.5px;
+}
+.task-item:last-child { border-bottom: none; }
+.task-tag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.tag-seo { background: rgba(91,168,168,0.15); color: var(--teal); }
+.tag-content { background: rgba(184,148,58,0.15); color: var(--gold); }
+.tag-tech { background: rgba(26,74,50,0.12); color: var(--forest-light); }
+.tag-dr { background: rgba(193,117,111,0.15); color: var(--rose); }
+.task-text { color: var(--muted); line-height: 1.5; }
+.task-week { flex-shrink: 0; font-size: 11px; color: var(--muted); margin-left: auto; }
+
+/* ——— RISK TABLE ——— */
+.risk-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13.5px; }
+.risk-table th { background: var(--forest); color: var(--gold); padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.risk-table td { padding: 14px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); vertical-align: top; }
+.risk-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+.sev { display: inline-block; padding: 2px 10px; border-radius: 50px; font-size: 11px; font-weight: 600; }
+.sev-low { background: rgba(91,168,104,0.15); color: var(--success); }
+.sev-mid { background: rgba(232,160,80,0.15); color: var(--warn); }
+.sev-high { background: rgba(193,80,74,0.15); color: var(--danger); }
+
+/* ——— FOOTER ——— */
+.proposal-footer {
+  background: var(--forest);
+  padding: 60px 40px;
+  text-align: center;
+}
+.proposal-footer .brand-mark {
+  font-family: 'Bebas Neue';
+  font-size: 32px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.proposal-footer p { color: rgba(255,255,255,0.5); font-size: 13px; }
+.proposal-footer .contact-row { margin-top: 24px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.proposal-footer .contact-item { font-size: 13px; color: rgba(255,255,255,0.7); }
+.proposal-footer .contact-item span { color: var(--gold); }
+
+/* ——— HIGHLIGHT BOX ——— */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(184,148,58,0.08), rgba(91,168,168,0.08));
+  border: 1px solid rgba(184,148,58,0.2);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.highlight-box h4 { font-family: 'Cormorant Garamond'; font-size: 22px; color: var(--forest); margin-bottom: 8px; }
+.highlight-box p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+/* ——— COMPETITOR TABLE ——— */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 24px; }
+.comp-table th { background: var(--forest); color: var(--gold); padding: 12px 14px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.comp-table td { padding: 12px 14px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.comp-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+.comp-highlight { background: rgba(184,148,58,0.06) !important; font-weight: 600; }
+
+.divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 48px 0; }
+.divider.gold { border-top-color: rgba(184,148,58,0.3); }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag { padding: 4px 14px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+.tag-forest { background: rgba(26,74,50,0.1); color: var(--forest-light); }
+.tag-gold { background: rgba(184,148,58,0.12); color: var(--gold); }
+.tag-teal { background: rgba(91,168,168,0.12); color: var(--teal); }
+.tag-rose { background: rgba(193,117,111,0.12); color: var(--rose); }
+
+/* ——— SAGEO PACKAGE FEATURES ——— */
+.sageo-pkg-feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sageo-pkg-feature:last-child { border-bottom: none; }
+.sageo-sub {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .section, .section-wide { padding: 60px 20px; }
+  .hero { padding: 60px 20px; }
+  .top-bar { padding: 8px 20px; }
+  .sticky-nav a { padding: 14px 16px; font-size: 10px; }
+  .timeline::before { left: 18px; }
+  .tl-dot { width: 40px; }
+  .tl-phase { display: none; }
+  .sageo-layers { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 24px; }
+  .price-card.featured { transform: scale(1); }
+  .kw-table { font-size: 12px; }
+  .kw-table th, .kw-table td { padding: 10px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress-wrap">
+  <div id="scroll-progress-fill"></div>
+</div>
+<div id="scroll-progress-label">0%</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>Confidential Proposal — For Internal Review Only</span>
+  <span class="brand">FLUMENX</span>
+  <span>May 2026</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="position:relative;z-index:1;max-width:900px;">
+    <div class="hero-badge">Digital Presence Masterplan</div>
+    <h1>Susrutha Ayurveda<br><span>55 Years. Now, Global Reach.</span></h1>
+    <p class="hero-sub">Website Content Management · SEO · SAG·EO · International Visibility Strategy</p>
+    <p class="hero-meta">Prepared by FlumenX for Dr. K. Krishnakumar · Dr. Sreeja Krishna · Dr. Priyanka R.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">55+</div><div class="lbl">Years Legacy</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="lbl">Facilities</div></div>
+      <div class="hero-stat"><div class="num">12K+</div><div class="lbl">Monthly Searches (Opportunity)</div></div>
+      <div class="hero-stat"><div class="num">0</div><div class="lbl">Structured SEO Today</div></div>
+    </div>
+    <div class="hero-nav">
+      <a class="primary" href="#audit">View Website Audit</a>
+      <a class="ghost" href="#strategy">Our Strategy</a>
+      <a class="ghost" href="#pricing">Pricing</a>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <a href="#audit">Website Audit</a>
+  <a href="#competition">Competition</a>
+  <a href="#keywords">Keywords</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#sageo">SAG·EO</a>
+  <a href="#doctors">Doctors</a>
+  <a href="#dashboard">Execution</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#pricing">Investment</a>
+</nav>
+
+<!-- ——— SECTION 1: CONTEXT ——— -->
+<div class="section" id="context">
+  <div class="section-label">The Opportunity</div>
+  <h2 class="section-title">A <em>55-year legacy</em> with a 2015-era digital presence</h2>
+  <p class="section-body">
+    Susrutha Ayurveda has everything it needs to be a dominant force in Trivandrum Ayurveda and a recognized name internationally — 55+ years of clinical excellence, a research pedigree, three facilities, and a team of qualified specialists including an Ayurvedic Gynaecologist. But its websites are losing the search war daily to competitors with inferior clinical credentials but superior digital execution. This proposal addresses exactly that gap.
+  </p>
+
+  <div class="highlight-box" style="margin-top:32px;">
+    <h4>Scope of This Engagement</h4>
+    <p>Based on our discussion, this proposal covers: <strong>(1) Website Content Overhaul</strong> — rewriting and structuring all pages for SEO and conversion; <strong>(2) On-Page & Technical SEO</strong> — making the site searchable for the right audiences; <strong>(3) Ongoing Content Management & Maintenance</strong> — monthly updates, blog content, treatment pages; and <strong>(4) SAG·EO</strong> — future-proofing for AI-powered search (introduced in Phase 2 once SEO foundation is solid). Social media management is excluded from this proposal per your instruction — your team handles that.</p>
+  </div>
+</div>
+
+<!-- ——— SECTION 2: WEBSITE AUDIT ——— -->
+<div class="section-bg-parchment" id="audit">
+<div class="section">
+  <div class="section-label">Deep Audit — All Digital Properties</div>
+  <h2 class="section-title">What's <em>missing</em> across your websites</h2>
+  <p class="section-body">We audited susruthaayurveda.com (main site + Kowdiar branch page), the Kerala Tourism listing, third-party profiles (Practo, JustDial, Sulekha, Medindia), and cross-referenced competitor sites. Here's the full picture.</p>
+
+  <div class="audit-grid">
+
+    <!-- Main Website -->
+    <div class="audit-card">
+      <div class="audit-card-header">
+        <div class="audit-icon">🌐</div>
+        <div>
+          <h3>Main Website</h3>
+          <div class="url">susruthaayurveda.com</div>
+        </div>
+      </div>
+      <div class="audit-score-bar"><div class="fill fill-mid" style="width:35%"></div></div>
+      <div class="audit-card-body">
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No meta descriptions</strong> — Every page has blank meta description. Google is auto-generating snippets, likely poor ones. This is the #1 quick win.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No structured data (Schema.org)</strong> — No MedicalOrganization, Physician, or MedicalClinic schema. Invisible to Google's rich results, AI Overviews, and voice search.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No dedicated treatment pages</strong> — All specialties link to one generic specialties.php. Each condition needs its own URL, title, and content (Panchakarma, Psoriasis, Infertility, Stroke, etc.).</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No blog / knowledge hub</strong> — Zero content marketing. Competitors publish monthly articles on Panchakarma, seasonal health tips, condition explanations — capturing informational search traffic.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Packages not optimized</strong> — 12 packages listed in a dropdown but no landing pages for any. "7-Day Ayurveda Package Trivandrum" gets searches but sends users nowhere meaningful.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No international patient section</strong> — Zero content targeting NRIs, GCC patients, European wellness tourists. The Ayurveda Gramam (cottages) is buried and underpromoted.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Broken email link</strong> — Contact email links to info@dentco.net (a dental company template artifact). Major credibility and spam risk.</div></div>
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>Spelling/grammar errors on live pages</strong> — "Heals you with Ayurveda" (headline OK), but "Disclimer", "Appoiment", "greped", "Pancharkarma" misspellings throughout. Damages authority.</div></div>
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>No SSL-secured booking confirmation</strong> — Appointment form submits without clear trust signals. No GDPR/data policy visible.</div></div>
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>Charitable Trust & Pharma pages point away</strong> — susruthacmt.com and susruthaayurvedapharma.com are separate domains with no cross-linking strategy. Authority is fragmented.</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Mobile-responsive design (basic)</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Appointment booking form exists</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Doctor availability listed on homepage</div></div>
+      </div>
+      <div class="audit-card-footer">SEO Score: ~18/100 — Critical work needed</div>
+    </div>
+
+    <!-- Kowdiar Page -->
+    <div class="audit-card">
+      <div class="audit-card-header">
+        <div class="audit-icon">🏥</div>
+        <div>
+          <h3>Kowdiar Branch Page</h3>
+          <div class="url">susruthaayurveda.com/kowdiar.php</div>
+        </div>
+      </div>
+      <div class="audit-score-bar"><div class="fill fill-low" style="width:15%"></div></div>
+      <div class="audit-card-body">
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Same meta title as main site</strong> — Title says "Susrutha Ayurveda - Heals you with Ayurveda" — identical to homepage. Google treats it as duplicate. No local SEO value.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No Kowdiar-specific content</strong> — Page has only one paragraph about Ayurveda generally and an address. No services listed, no doctor availability, no Kowdiar-specific information at all.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Not optimized for "ayurveda kowdiar" searches</strong> — "Ayurveda Kowdiar Trivandrum" is a searched term. This page would not rank because it has no keyword-aligned content.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No embedded Google Maps</strong> — Despite the code referencing a maps embed, it is not rendering properly. Patients in Kowdiar cannot navigate easily.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No GMB connection/linkage</strong> — No structured reference to the Kowdiar Google Business Profile. Each location needs its own GMB and its own landing page strategy.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No separate booking for Kowdiar</strong> — The booking form still shows the main hospital packages. Kowdiar is an OP Outlet with different scope — this is confusing to patients.</div></div>
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>Contact email shows kowdiar@susruthaayurveda.com</strong> — Good to have but not confirmed as active. No WhatsApp CTA.</div></div>
+      </div>
+      <div class="audit-card-footer">SEO Score: ~8/100 — Near-zero digital presence for Kowdiar</div>
+    </div>
+
+    <!-- Kerala Tourism Listing -->
+    <div class="audit-card">
+      <div class="audit-card-header">
+        <div class="audit-icon">🌿</div>
+        <div>
+          <h3>Kerala Tourism Listing</h3>
+          <div class="url">keralatourism.org/ayurveda-centres/...</div>
+        </div>
+      </div>
+      <div class="audit-score-bar"><div class="fill fill-mid" style="width:30%"></div></div>
+      <div class="audit-card-body">
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>Listed but not optimized</strong> — Susrutha is registered as an Ayurveda Centre on Kerala Tourism portal — a high DA (Domain Authority ~65) listing that ranks internationally. But the profile is minimal.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No treatment descriptions</strong> — The treatments section is not populated. Competitors with full listings here capture international travellers searching for Kerala Ayurveda packages.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Minimal photos</strong> — Only 2 photos uploaded. A rich photo gallery (therapy rooms, cottages, Ayur Gramam) dramatically increases conversion from this high-DA listing.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No website backlink from listing</strong> — The listing does not show a linked website. This is a missed high-DA backlink opportunity — one of the most valuable free ones available.</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Registered and visible on government tourism portal</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Contact phone numbers present</div></div>
+      </div>
+      <div class="audit-card-footer">Profile Completeness: ~25% — Easy wins available</div>
+    </div>
+
+    <!-- Third Party Profiles -->
+    <div class="audit-card">
+      <div class="audit-card-header">
+        <div class="audit-icon">📋</div>
+        <div>
+          <h3>Third-Party Profiles</h3>
+          <div class="url">Practo · JustDial · Sulekha · Medindia</div>
+        </div>
+      </div>
+      <div class="audit-score-bar"><div class="fill fill-mid" style="width:28%"></div></div>
+      <div class="audit-card-body">
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt"><strong>Practo: 5.0 rating (22 reviews)</strong> — Excellent trust signal. 100% positive sentiment in visible reviews. Dr. Krishnakumar listed.</div></div>
+        <div class="audit-item warn"><div class="icon">⚠</div><div class="txt"><strong>Practo: Only 1 doctor listed</strong> — Dr. Sreeja Krishna and Dr. Priyanka are not on Practo. Each doctor profile = a separate ranking opportunity for "ayurvedic gynaecologist trivandrum" etc.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>JustDial: 4.5 rating, minimal</strong> — Listed but no website link, no photos linked to the main site. Description is generic.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>Medindia: Unclaimed / minimal</strong> — They are pushing premium listing to Susrutha, which means the current profile is thin. Medindia ranks well for medical searches.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No Google Business Profile optimization strategy</strong> — No mention of weekly posts, Q&A management, or photo uploads to GMB which are direct ranking factors for local search.</div></div>
+        <div class="audit-item miss"><div class="icon">✗</div><div class="txt"><strong>No LinkedIn presence for institutional authority</strong> — LinkedIn company page has 70 followers and zero recent activity. LinkedIn content indexes in Google and builds B2B trust (corporate wellness, insurance referrals).</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Facebook page: 3,013 likes — modest but present</div></div>
+        <div class="audit-item ok"><div class="icon">✓</div><div class="txt">Instagram: @susruthaayurvedatvm — exists but needs linking from website</div></div>
+      </div>
+      <div class="audit-card-footer">Digital Footprint: Fragmented — Needs cohesion strategy</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ——— SECTION 3: COMPETITION ——— -->
+<div class="section" id="competition">
+  <div class="section-label">Competitive Landscape</div>
+  <h2 class="section-title">Who you're competing with — <em>and how to win</em></h2>
+  <p class="section-body">The Trivandrum Ayurveda space is crowded but Susrutha has an unmatched lineage. The problem: competitors with less heritage are winning Google because they invest in content and technical SEO. Here's who you face and where Susrutha has natural advantages.</p>
+
+  <table class="comp-table" style="margin-top:32px;">
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>SEO Strength</th>
+        <th>Key Advantage</th>
+        <th>Susrutha Counter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="comp-highlight">
+        <td><strong>Susrutha Ayurveda</strong> (you)</td>
+        <td><span class="sev sev-low">Weak</span></td>
+        <td>55yr legacy, Research Institute, Ayur Gramam, Specialist OBG</td>
+        <td>— This proposal addresses this</td>
+      </tr>
+      <tr>
+        <td>Pankajakasthuri Ayurveda (Kattakada)</td>
+        <td><span class="sev sev-high">Strong</span></td>
+        <td>Medical College attached, NABH accredited, 100 beds</td>
+        <td>Susrutha's 55yr heritage + personalized care + Ayur Gramam premium</td>
+      </tr>
+      <tr>
+        <td>Ayurmana (Dharmagiri)</td>
+        <td><span class="sev sev-high">Strong</span></td>
+        <td>Premium international positioning, hillside setting</td>
+        <td>Comparable facilities at better price; Trivandrum city location advantage</td>
+      </tr>
+      <tr>
+        <td>Leelajani Ayur Care</td>
+        <td><span class="sev sev-mid">Medium</span></td>
+        <td>Active blog content, founder-driven branding</td>
+        <td>Susrutha's research credentials and multi-generational pedigree</td>
+      </tr>
+      <tr>
+        <td>Sreerudra Ayurveda</td>
+        <td><span class="sev sev-mid">Medium</span></td>
+        <td>Well-written blog targeting search terms</td>
+        <td>Susrutha's actual clinical depth vs. Sreerudra's content-forward approach</td>
+      </tr>
+      <tr>
+        <td>KIMSHEALTH Ayurveda</td>
+        <td><span class="sev sev-high">Very Strong</span></td>
+        <td>Brand recognition, large hospital group, international patient unit</td>
+        <td>Authenticity — pure Ayurveda heritage vs. allopathic hospital's Ayurveda wing</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <h4>Susrutha's Unfair Advantages (Currently Unused Digitally)</h4>
+    <p><strong>1. Research Institute</strong> — "Research" in the name signals scientific credibility to international patients. No content leverages this.<br>
+    <strong>2. Ayur Gramam (Cottages)</strong> — A premium 4-cottage Ayurveda village experience near the airport. Competitors charge 5–10x for similar setups. Zero dedicated SEO.<br>
+    <strong>3. Specialist OBG (Dr. Priyanka)</strong> — "Ayurvedic gynaecologist Trivandrum" + "ayurveda PCOD treatment" + "fertility ayurveda Kerala" — high intent, low competition keywords that no one on this hospital's website is targeting.<br>
+    <strong>4. 55+ Years Legacy</strong> — Trust and authority that money can't buy. Not prominently positioned as a headline credential.<br>
+    <strong>5. Piles/Fistula Surgical Specialist</strong> — Operation theatre, Ksharasutra — highly searched medical condition with patients actively seeking non-allopathic options.</p>
+  </div>
+</div>
+
+<!-- ——— SECTION 4: KEYWORDS ——— -->
+<div class="section-bg-parchment" id="keywords">
+<div class="section">
+  <div class="section-label">Keyword Intelligence</div>
+  <h2 class="section-title">The searches you're <em>not showing up for</em> — yet</h2>
+  <p class="section-body">Based on competitor analysis, Google Autocomplete research, and category benchmarks for Kerala Ayurveda. Volume estimates reflect monthly India + international searches.</p>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchKwTab('primary')">Primary Keywords</button>
+    <button class="tab-btn" onclick="switchKwTab('specialty')">Specialty / Condition</button>
+    <button class="tab-btn" onclick="switchKwTab('intl')">International / NRI</button>
+    <button class="tab-btn" onclick="switchKwTab('longterm')">Long Tail / Blog</button>
+  </div>
+
+  <div id="kw-primary" class="tab-panel active">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Est. Volume/mo</th><th>Difficulty</th><th>Intent</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td>ayurveda hospital trivandrum</td><td><span class="vol-pill vol-high">3,600</span></td><td><span class="diff-pill diff-hard">High</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Must rank — currently not in top 10</td></tr>
+        <tr><td>best ayurveda hospital trivandrum</td><td><span class="vol-pill vol-high">2,400</span></td><td><span class="diff-pill diff-hard">High</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>High value — needs dedicated landing content</td></tr>
+        <tr><td>panchakarma hospital trivandrum</td><td><span class="vol-pill vol-high">1,900</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Strong — Susrutha is literally a Panchakarma hospital</td></tr>
+        <tr><td>ayurveda hospital kattakada</td><td><span class="vol-pill vol-mid">880</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Easy win — low competition, exact location match</td></tr>
+        <tr><td>susrutha ayurveda</td><td><span class="vol-pill vol-mid">590</span></td><td><span class="diff-pill diff-low">Branded</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Brand term — own this completely, site structure counts</td></tr>
+        <tr><td>panchakarma trivandrum</td><td><span class="vol-pill vol-high">1,300</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Dedicate a pillar page to this — clear win</td></tr>
+        <tr><td>ayurveda resort trivandrum</td><td><span class="vol-pill vol-mid">720</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Ayur Gramam plays here — massive missed opportunity</td></tr>
+        <tr><td>ayurveda kowdiar trivandrum</td><td><span class="vol-pill vol-low">210</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Kowdiar branch page needs a full rewrite for this</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kw-specialty" class="tab-panel">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Est. Volume/mo</th><th>Difficulty</th><th>Intent</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td>ayurvedic treatment for back pain kerala</td><td><span class="vol-pill vol-high">2,100</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Dedicated page for Back & Spine — strong match</td></tr>
+        <tr><td>ayurvedic infertility treatment kerala</td><td><span class="vol-pill vol-high">1,600</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Dr. Priyanka's specialty — create Women's Health pillar page</td></tr>
+        <tr><td>piles ayurvedic treatment trivandrum</td><td><span class="vol-pill vol-mid">880</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Operation theatre + Ksharasutra — extremely differentiating</td></tr>
+        <tr><td>ayurveda for stroke recovery kerala</td><td><span class="vol-pill vol-mid">590</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Rare specialty — clear content + schema opportunity</td></tr>
+        <tr><td>psoriasis treatment ayurveda kerala</td><td><span class="vol-pill vol-high">1,900</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Dedicated package exists — needs SEO page</td></tr>
+        <tr><td>PCOD treatment ayurveda</td><td><span class="vol-pill vol-high">3,200</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>National-level opportunity via Dr. Priyanka's credentials</td></tr>
+        <tr><td>rheumatoid arthritis ayurvedic hospital</td><td><span class="vol-pill vol-high">2,400</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Testimonial in review explicitly mentions this cure</td></tr>
+        <tr><td>ayurvedic gynaecologist trivandrum</td><td><span class="vol-pill vol-mid">320</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Near-zero competition — Dr. Priyanka can own this term</td></tr>
+        <tr><td>developmental pediatrics ayurveda kerala</td><td><span class="vol-pill vol-mid">480</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Rare, high-emotion specialty — needs dedicated page</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kw-intl" class="tab-panel">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Est. Volume/mo</th><th>Difficulty</th><th>Intent</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td>ayurveda retreat kerala packages</td><td><span class="vol-pill vol-high">4,400</span></td><td><span class="diff-pill diff-hard">High</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Ayur Gramam cottages can rank for this</td></tr>
+        <tr><td>authentic ayurveda hospital kerala</td><td><span class="vol-pill vol-mid">880</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>55yr heritage = authenticity proof — needs content</td></tr>
+        <tr><td>7 day ayurveda package kerala price</td><td><span class="vol-pill vol-mid">720</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Package page with price + itinerary = direct booking driver</td></tr>
+        <tr><td>panchakarma treatment kerala cost</td><td><span class="vol-pill vol-high">1,600</span></td><td><span class="diff-pill diff-mid">Medium</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Create transparent pricing/package page — trust builder</td></tr>
+        <tr><td>NRI ayurveda packages trivandrum</td><td><span class="vol-pill vol-low">210</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Very low competition — dedicated landing page captures Gulf NRIs</td></tr>
+        <tr><td>best panchakarma center near trivandrum airport</td><td><span class="vol-pill vol-low">260</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Ayur Gramam is 20km from airport — perfect match phrase</td></tr>
+        <tr><td>ayurveda medical tourism kerala</td><td><span class="vol-pill vol-high">2,900</span></td><td><span class="diff-pill diff-hard">High</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Long-term goal — positioned via Kerala Tourism + blog content</td></tr>
+        <tr><td>ayurveda treatment for foreigners trivandrum</td><td><span class="vol-pill vol-low">170</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-t">Transactional</span></td><td>Easy to rank — create International Patients page</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kw-longterm" class="tab-panel">
+    <table class="kw-table">
+      <thead><tr><th>Keyword / Blog Topic</th><th>Volume</th><th>Difficulty</th><th>Type</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>what is panchakarma treatment side effects</td><td><span class="vol-pill vol-high">2,900</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Patients research before booking — capture at awareness stage</td></tr>
+        <tr><td>ayurveda treatment for back pain how many days</td><td><span class="vol-pill vol-mid">880</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Highly specific question — easy ranking, high intent</td></tr>
+        <tr><td>does ayurveda cure PCOD permanently</td><td><span class="vol-pill vol-high">3,600</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Dr. Priyanka can author this — builds authority + E-E-A-T</td></tr>
+        <tr><td>Kativasthi vs physiotherapy for back pain</td><td><span class="vol-pill vol-mid">390</span></td><td><span class="diff-pill diff-low">Very Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Niche, zero competition — exactly where we start</td></tr>
+        <tr><td>post-natal care ayurveda what to expect</td><td><span class="vol-pill vol-mid">480</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Dr. Priyanka authority content — captures new mothers</td></tr>
+        <tr><td>ayurveda during pregnancy safe treatments</td><td><span class="vol-pill vol-high">1,900</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Highly searched, medically credible content by Dr. Priyanka</td></tr>
+        <tr><td>monsoon ayurveda detox kerala best time</td><td><span class="vol-pill vol-mid">590</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Seasonal content — Karkidaka Chikitsa — culturally rich</td></tr>
+        <tr><td>childhood autism ayurveda treatment India</td><td><span class="vol-pill vol-mid">720</span></td><td><span class="diff-pill diff-low">Low</span></td><td><span class="intent-pill intent-i">Informational</span></td><td>Developmental Paediatrics specialty — emotional + high search</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<!-- ——— SECTION 5: STRATEGY ——— -->
+<div class="section" id="strategy">
+  <div class="section-label">The Masterplan</div>
+  <h2 class="section-title">SEO-First Strategy for <em>Maximum International Reach</em></h2>
+  <p class="section-body">We build in three phases. Phase 1 is about fixing the foundation — no advanced tactics work without it. Phase 2 is about growth through content. Phase 3 is where SAG·EO activates for future-proof AI search visibility.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot">
+        <div class="tl-circle"></div>
+        <div class="tl-phase">PHASE 1</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-time">Days 1–30 · Foundation Sprint</div>
+        <h3>Fix, Rewrite, Structure</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">The most impactful month. We correct all critical errors and create the content architecture that everything else builds on. This is where immediate quick wins happen — clients start finding you for branded searches properly, and Google re-crawls with the new metadata within weeks.</p>
+        <ul class="tl-tasks">
+          <li>Rewrite all meta titles and descriptions (every page — 15+ pages)</li>
+          <li>Fix broken email link (dentco.net artifact — embarrassing and harmful)</li>
+          <li>Correct all spelling errors site-wide ("Disclimer", "Appoiment", etc.)</li>
+          <li>Add MedicalOrganization + MedicalClinic schema markup to homepage</li>
+          <li>Add Physician schema for all 3 doctors (Dr. Krishnakumar, Dr. Sreeja, Dr. Priyanka)</li>
+          <li>Rewrite homepage hero copy with primary keywords embedded naturally</li>
+          <li>Rewrite About Us page — spotlight 55-year legacy, Research Institute, generational story</li>
+          <li>Redesign Kowdiar page — full rewrite with local SEO content, map, separate contact</li>
+          <li>Google Maps embed fix for both locations</li>
+          <li>Add Instagram/Facebook social links correctly to all pages</li>
+          <li>Optimize Kerala Tourism listing — add treatments, upload 10+ photos, add website link</li>
+          <li>Add Dr. Sreeja and Dr. Priyanka profiles to Practo</li>
+        </ul>
+        <div class="tl-deliverables">
+          <span class="del-tag">15 pages rewritten</span>
+          <span class="del-tag">Schema markup</span>
+          <span class="del-tag">Meta optimization</span>
+          <span class="del-tag">Profile updates</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">
+        <div class="tl-circle" style="background:var(--teal);box-shadow:0 0 0 2px var(--teal);"></div>
+        <div class="tl-phase" style="color:var(--teal);">PHASE 2</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-time">Month 2–3 · Content Architecture</div>
+        <h3>Build the Content Pillars</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Create dedicated landing pages for each specialty and package — this is what turns casual visitors into appointment bookings. Each page is written with SEO intent AND patient conversion in mind.</p>
+        <ul class="tl-tasks">
+          <li>Create dedicated Panchakarma Treatment page (pillar page — 1200+ words)</li>
+          <li>Create Women's Health & Fertility page (Dr. Priyanka focus — PCOD, infertility, postnatal)</li>
+          <li>Create Back, Neck & Joints treatment page (highest volume specialty)</li>
+          <li>Create Psoriasis & Skin Conditions page (high search volume, existing package)</li>
+          <li>Create International Patients / NRI Patients landing page</li>
+          <li>Create Ayur Gramam (Cottages/Resort) dedicated page with pricing, booking flow</li>
+          <li>Create Ksharasutra / Piles Treatment page (surgical specialty — unique differentiator)</li>
+          <li>Create Stroke & Neurological Rehabilitation page</li>
+          <li>Launch blog section — publish 2 articles per month (Month 2 start)</li>
+          <li>Optimize all package pages — add proper descriptions, duration, inclusions, pricing hints</li>
+          <li>Add FAQ schema to key pages (improves featured snippet capture)</li>
+          <li>Internal linking strategy — connect all pages in a logical hierarchy</li>
+        </ul>
+        <div class="tl-deliverables">
+          <span class="del-tag">8 new pillar pages</span>
+          <span class="del-tag">Blog launch</span>
+          <span class="del-tag">4 articles (Months 2–3)</span>
+          <span class="del-tag">FAQ schema</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">
+        <div class="tl-circle" style="background:var(--sage);box-shadow:0 0 0 2px var(--sage);"></div>
+        <div class="tl-phase" style="color:var(--sage);">PHASE 3</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-time">Month 4–6 · Authority & AI Visibility (SAG·EO Activation)</div>
+        <h3>Dominate Search + Enter AI Results</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Once the SEO foundation is solid and content is live, we activate SAG·EO — FlumenX's proprietary framework that positions Susrutha not just in Google's 10 blue links, but in AI Overviews, ChatGPT answers, and voice search. More on SAG·EO in the next section.</p>
+        <ul class="tl-tasks">
+          <li>Backlink outreach — Kerala tourism directories, Ayurveda associations, health publications</li>
+          <li>Guest article placements on Kerala health/tourism blogs</li>
+          <li>GEO-optimized content — written to be cited by AI systems (Claude, ChatGPT, Gemini)</li>
+          <li>AEO (Answer Engine Optimization) — structure FAQ content to win AI Overview boxes</li>
+          <li>Knowledge panel optimization for Susrutha as an entity</li>
+          <li>Monthly blog (4 articles/month from Month 4) with seasonal Ayurveda content</li>
+          <li>Continue pillar page expansion (Diabetes, Migraine, Arthritis, Obesity packages)</li>
+          <li>Press release distribution — activate existing ResearchGate/publication credentials</li>
+          <li>International market content — UK, GCC, Europe patient journey content</li>
+        </ul>
+        <div class="tl-deliverables">
+          <span class="del-tag">SAG·EO activation</span>
+          <span class="del-tag">Backlink strategy</span>
+          <span class="del-tag">AI citation targeting</span>
+          <span class="del-tag">8 articles</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">
+        <div class="tl-circle" style="background:var(--gold-light);box-shadow:0 0 0 2px var(--gold-light);"></div>
+        <div class="tl-phase" style="color:var(--gold-light);">PHASE 4</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-time">Month 7–12 · Scale & International Dominance</div>
+        <h3>Compound Growth Engine</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">By month 6, the SEO gains compound. New content ranks. Backlinks build authority. AI systems start citing Susrutha. Phase 4 is about doubling down on what's working and scaling international reach.</p>
+        <ul class="tl-tasks">
+          <li>Monthly content: 4 articles + 2 package pages + seasonal updates</li>
+          <li>Video content optimization — YouTube SEO for existing videos (Media section)</li>
+          <li>Patient testimonial page SEO — structured patient stories (with consent)</li>
+          <li>Doctor thought leadership content — Q&A format articles attributed to doctors</li>
+          <li>Kerala Tourism + IndiaMedTourism + Incredible India listings optimization</li>
+          <li>International directory listings (BookRetreats, TripAdvisor wellness, Booking.com wellness)</li>
+          <li>Annual SEO audit + strategy refresh for Year 2</li>
+          <li>WhatsApp Business integration + chatbot for appointment flow</li>
+        </ul>
+        <div class="tl-deliverables">
+          <span class="del-tag">24+ articles</span>
+          <span class="del-tag">Video SEO</span>
+          <span class="del-tag">International directories</span>
+          <span class="del-tag">Year 2 roadmap</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ——— SECTION 6: SAG·EO ——— -->
+<div class="section-bg-dark" id="sageo">
+<div class="section">
+  <div class="section-label" style="color:var(--sage);">Why SEO Alone Is No Longer Enough</div>
+  <h2 class="section-title light">Introducing <em>SAG·EO</em></h2>
+  <p class="section-body light" style="margin-bottom:40px;">We begin with traditional SEO because it is the non-negotiable foundation. But here is what is changing in search: when someone asks Google "best ayurveda hospital for infertility in Kerala", Google's AI Overview now answers directly — often without the user clicking any link. ChatGPT and Gemini answer health queries for millions daily. If Susrutha is not in those AI answers, it loses patients to whoever is. SAG·EO is FlumenX's proprietary framework — the only one of its kind — that addresses this.</p>
+
+  <div class="sageo-card">
+    <div class="sageo-badge">FlumenX Exclusive · Proprietary Framework · Published ResearchGate 2025</div>
+    <h3>SAG·EO — <span>Strategy Augmented Growth Engine for Organic Search</span></h3>
+    <p>A four-layer framework that takes Susrutha Ayurveda from Google rankings to being the authoritative source that AI systems cite when recommending Ayurvedic care. Built by FlumenX and formally published as an academic framework in 2025, SAG·EO is not a buzzword — it's a documented methodology with trademark protection.</p>
+
+    <div class="sageo-layers">
+      <div class="sageo-layer">
+        <div class="num">01</div>
+        <div class="name">SEO</div>
+        <div class="desc">Traditional search engine optimization — meta, content, technical, backlinks. This is Phase 1 of the engagement. The non-negotiable foundation.</div>
+      </div>
+      <div class="sageo-layer">
+        <div class="num">02</div>
+        <div class="name">AEO</div>
+        <div class="desc">Answer Engine Optimization — structuring content to win Google's AI Overviews, featured snippets, and Q&A boxes. Content written as answers, not just articles.</div>
+      </div>
+      <div class="sageo-layer">
+        <div class="num">03</div>
+        <div class="name">GEO</div>
+        <div class="desc">Generative Engine Optimization — writing content specifically designed to be cited by ChatGPT, Claude, Gemini, and Perplexity when answering health queries.</div>
+      </div>
+      <div class="sageo-layer">
+        <div class="num">04</div>
+        <div class="name">Authority</div>
+        <div class="desc">Digital authority compounding — entities, knowledge panels, structured data, and E-E-A-T signals that make Google and AI systems treat Susrutha as the trusted source.</div>
+      </div>
+    </div>
+
+    <div class="sageo-why">
+      <p><strong style="color:var(--gold-light);">Why this matters for Susrutha specifically:</strong> An international patient in Germany searching "authentic ayurveda hospital Kerala for infertility" is now more likely to ask ChatGPT or Gemini than to click page 1 Google results. If Susrutha's content is not structured for AI citation, it will be invisible to this patient — regardless of SEO rank. SAG·EO ensures Susrutha appears in both worlds. We recommend activating SAG·EO in Month 4, once the SEO foundation from Phase 1 is indexed and ranking.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ——— SECTION 7: DOCTORS ——— -->
+<div class="section" id="doctors">
+  <div class="section-label">Doctor Digital Presence</div>
+  <h2 class="section-title">Your doctors are <em>invisible online</em> — that's a ranking problem</h2>
+  <p class="section-body">Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) algorithm ranks medical content higher when it's associated with real, credentialed, verifiable doctors. Susrutha's three doctors are clinical experts with exceptional credentials — but digitally, they don't exist beyond the hospital website. This hurts the hospital's ranking and credibility.</p>
+
+  <div class="doctors-grid">
+
+    <div class="doc-card">
+      <div class="doc-initial">K</div>
+      <h3>Dr. K. Krishnakumar</h3>
+      <div class="qual">BAMS, MBA Hospital Management</div>
+      <div class="spec">Chief Physician · Hospital Director · Son of the Late Prof. Dr. Krishnankutty Nair</div>
+
+      <div class="doc-gap-title">Current Digital Gaps</div>
+      <div class="doc-gap-item">No dedicated doctor bio page on the hospital website</div>
+      <div class="doc-gap-item">LinkedIn not connected or active professionally</div>
+      <div class="doc-gap-item">Research Institute credentials not published online</div>
+      <div class="doc-gap-item">No Practo-linked profile with his specialization details</div>
+
+      <div class="doc-opp-title">SEO & Authority Opportunities</div>
+      <div class="doc-opp-item">Expanded bio page: credentials, lineage, treatment philosophy</div>
+      <div class="doc-opp-item">Hospital management + clinical authority = rare dual positioning</div>
+      <div class="doc-opp-item">Attributed blog articles (ghost-written or co-authored) boost site E-E-A-T</div>
+      <div class="doc-opp-item">Research work can be cited → knowledge panel, Wikipedia eligibility</div>
+
+      <div class="doc-note">💡 A thought leadership suggestion: Dr. Krishnakumar's dual expertise in Ayurveda + Hospital Management is a rare combination. A well-curated digital presence — even just a complete LinkedIn + Google Scholar profile — significantly raises the hospital's authority score. We'd love to share a personal branding proposal if he's open to it.</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-initial">S</div>
+      <h3>Dr. Sreeja Krishna</h3>
+      <div class="qual">BAMS — Principal Physician</div>
+      <div class="spec">General Ayurveda · Panchakarma · Available Tue, Thu, Sat</div>
+
+      <div class="doc-gap-title">Current Digital Gaps</div>
+      <div class="doc-gap-item">Not listed on Practo, Lybrate, or any third-party doctor platform</div>
+      <div class="doc-gap-item">No individual Google Business Knowledge Panel</div>
+      <div class="doc-gap-item">Hospital website shows availability but no professional bio</div>
+      <div class="doc-gap-item">No content attributed to her as a clinical author</div>
+
+      <div class="doc-opp-title">SEO & Authority Opportunities</div>
+      <div class="doc-opp-item">Practo profile: "Dr. Sreeja Krishna, Ayurveda — Trivandrum" independently rankable</div>
+      <div class="doc-opp-item">As daughter of the late Prof. Krishnankutty Nair — lineage is SEO-worthy narrative</div>
+      <div class="doc-opp-item">Content on Panchakarma protocols authored by her → E-E-A-T signals</div>
+      <div class="doc-opp-item">Seasonal Ayurveda content (Karkidaka, Monsoon detox) attributed to her</div>
+
+      <div class="doc-note">💡 Dr. Sreeja's lineage story — third-generation Ayurvedic physician, daughter of a Govt. College HOD — is a remarkable human story that builds patient trust. A brief digital biography is a powerful trust signal we'd love to help write.</div>
+    </div>
+
+    <div class="doc-card">
+      <div class="doc-initial">P</div>
+      <h3>Dr. Priyanka R.</h3>
+      <div class="qual">BAMS, MS (Ayur)</div>
+      <div class="spec">Ayurvedic Gynaecologist & Obstetrician · Available Sun, Mon, Wed, Fri</div>
+
+      <div class="doc-gap-title">Current Digital Gaps</div>
+      <div class="doc-gap-item">No individual profile on any medical platform (Practo, Lybrate, Credihealth)</div>
+      <div class="doc-gap-item">"Ayurvedic gynaecologist Trivandrum" — near-zero competition keyword, nobody ranks for it</div>
+      <div class="doc-gap-item">MS (Ayur) post-graduation completely absent from all digital touchpoints</div>
+      <div class="doc-gap-item">No content addressing women's Ayurvedic health — despite being a specialist</div>
+
+      <div class="doc-opp-title">SEO & Authority Opportunities</div>
+      <div class="doc-opp-item"><strong>Biggest opportunity in this entire proposal:</strong> "Ayurvedic gynaecologist" is a near-empty search category — Dr. Priyanka can own it</div>
+      <div class="doc-opp-item">PCOD, infertility, pregnancy care, postnatal — 4 high-volume, high-intent keyword clusters</div>
+      <div class="doc-opp-item">Dedicated Women's Health page written around her credentials</div>
+      <div class="doc-opp-item">Individual Practo profile could independently rank and generate appointments</div>
+
+      <div class="doc-note">💡 Dr. Priyanka's MS (Ayur) in Gynaecology is genuinely rare in Trivandrum. A personal branding strategy for her — even just a complete Practo + Lybrate profile + one monthly article — could generate significant direct appointments for the women's health vertical. We'd share a separate proposal if she's interested.</div>
+    </div>
+
+  </div>
+
+  <div class="highlight-box" style="margin-top:32px;">
+    <h4>Note on Personal Branding</h4>
+    <p>The doctor profiles we build as part of this SEO engagement are the minimum — correct bios, proper credentials, Practo listings, and attributed content. For a full personal branding strategy (including thought leadership content, speaking positioning, social media authority), we would prepare separate proposals for each doctor. This is purely a suggestion and carries no obligation — we mention it because it materially improves the hospital's search rankings when doctors are visible authorities.</p>
+  </div>
+</div>
+
+<!-- ——— SECTION 8: EXECUTION DASHBOARD ——— -->
+<div class="section-bg-parchment" id="dashboard">
+<div class="section">
+  <div class="section-label">Execution Dashboard</div>
+  <h2 class="section-title">The <em>complete plan</em> — split by timeframe</h2>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('d30')">30 Days</button>
+    <button class="tab-btn" onclick="switchTab('d90')">90 Days</button>
+    <button class="tab-btn" onclick="switchTab('d180')">6 Months</button>
+    <button class="tab-btn" onclick="switchTab('d365')">12 Months</button>
+  </div>
+
+  <!-- 30 DAYS -->
+  <div id="tab-d30" class="tab-panel active">
+    <div class="exec-strip">
+      <div class="exec-metric"><div class="em-val">15+</div><div class="em-lbl">Pages Rewritten</div></div>
+      <div class="exec-metric"><div class="em-val">3</div><div class="em-lbl">Doctor Schemas Added</div></div>
+      <div class="exec-metric"><div class="em-val">100%</div><div class="em-lbl">Broken Links Fixed</div></div>
+      <div class="exec-metric"><div class="em-val">5+</div><div class="em-lbl">Profiles Updated</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Week 1 — Technical & Critical Fixes</div>
+      <div class="task-item"><span class="task-tag tag-tech">TECH</span><div class="task-text">Fix broken email link (dentco.net → correct info@susruthaayurveda.com)</div><div class="task-week">W1</div></div>
+      <div class="task-item"><span class="task-tag tag-tech">TECH</span><div class="task-text">Fix Google Maps embeds for both Kattakada and Kowdiar locations</div><div class="task-week">W1</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Install SEO plugin / configure server-side meta management (on existing PHP site)</div><div class="task-week">W1</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Spelling/grammar audit and correction — all pages site-wide</div><div class="task-week">W1</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Submit site to Google Search Console; request re-indexing after changes</div><div class="task-week">W1</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Week 2 — Meta & Schema</div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Write and implement unique meta titles for every page (15+ pages)</div><div class="task-week">W2</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Write and implement meta descriptions for every page (compelling, keyword-aligned)</div><div class="task-week">W2</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Add MedicalOrganization + MedicalClinic schema to homepage</div><div class="task-week">W2</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Add Physician schema for Dr. Krishnakumar, Dr. Sreeja, Dr. Priyanka</div><div class="task-week">W2</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Add LocalBusiness schema for both Kattakada and Kowdiar locations</div><div class="task-week">W2</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Week 3 — Core Page Rewrites</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Homepage hero rewrite — lead with 55-year legacy, research credentials, specialist team</div><div class="task-week">W3</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">About Us page — full rewrite: generational story, Research Institute, vision for global Ayurveda</div><div class="task-week">W3</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Doctors page — expand to full bios with credentials, treatment philosophy, availability</div><div class="task-week">W3</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Kowdiar branch page — full rewrite with local SEO, unique content, WhatsApp CTA</div><div class="task-week">W3</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Week 4 — Off-Site & Profiles</div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Kerala Tourism listing — add treatments, upload 12 photos, add website link, complete all fields</div><div class="task-week">W4</div></div>
+      <div class="task-item"><span class="task-tag tag-dr">DOCTOR</span><div class="task-text">Create Practo profiles for Dr. Sreeja Krishna and Dr. Priyanka with full credentials</div><div class="task-week">W4</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Update JustDial listing — add website, photos, correct categories</div><div class="task-week">W4</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Submit to AyurvedaHospitals.in, Wellness India, India Medical Tourism directories</div><div class="task-week">W4</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Month-end report: rankings baseline, traffic snapshot, pages indexed</div><div class="task-week">W4</div></div>
+    </div>
+  </div>
+
+  <!-- 90 DAYS -->
+  <div id="tab-d90" class="tab-panel">
+    <div class="exec-strip">
+      <div class="exec-metric"><div class="em-val">8</div><div class="em-lbl">New Pillar Pages</div></div>
+      <div class="exec-metric"><div class="em-val">4</div><div class="em-lbl">Blog Articles</div></div>
+      <div class="exec-metric"><div class="em-val">20+</div><div class="em-lbl">Keywords Targeted</div></div>
+      <div class="exec-metric"><div class="em-val">40%</div><div class="em-lbl">Est. Organic Growth</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 2 — Pillar Pages Launch</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Panchakarma Treatment page — pillar page (1,200+ words, treatment types, what to expect, booking CTA)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Women's Health & Fertility page — Dr. Priyanka focus, PCOD/infertility/postnatal, specialist credentials prominent</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Piles & Fistula Treatment page — Ksharasutra procedure, surgical team, recovery</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Ayur Gramam resort page — cottages, pricing, airport distance, booking flow</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Blog Article 1: "What is Panchakarma? A Patient's Complete Guide" (targeting 2,900/mo)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Blog Article 2: "Ayurveda for PCOD: Does it Actually Work?" (attributed to Dr. Priyanka)</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 3 — More Pages + Content Velocity</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Back, Neck & Joints treatment page (highest volume specialty — Kativasthi, Pizhichil, etc.)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create International / NRI Patients landing page (English + Gulf market targeting)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Stroke & Neurological Care page (rare specialty — minimal competition)</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Internal linking audit — connect all new pillar pages with homepage, About, and each other</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Blog Article 3: "Karkidaka Chikitsa — Monsoon Ayurveda Explained" (seasonal content)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Blog Article 4: "Ayurveda during Pregnancy — What's Safe?" (Dr. Priyanka authored)</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">FAQ schema implementation on all pillar pages (featured snippet targeting)</div></div>
+    </div>
+  </div>
+
+  <!-- 6 MONTHS -->
+  <div id="tab-d180" class="tab-panel">
+    <div class="exec-strip">
+      <div class="exec-metric"><div class="em-val">15+</div><div class="em-lbl">Pages Ranking</div></div>
+      <div class="exec-metric"><div class="em-val">10</div><div class="em-lbl">Blog Articles</div></div>
+      <div class="exec-metric"><div class="em-val">3x</div><div class="em-lbl">Organic Traffic Est.</div></div>
+      <div class="exec-metric"><div class="em-val">SAG·EO</div><div class="em-lbl">Activated (M4)</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 4 — SAG·EO Activation</div>
+      <div class="task-item"><span class="task-tag tag-seo">SAG·EO</span><div class="task-text">GEO content audit — review existing content for AI-citation readiness, restructure as authoritative answers</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SAG·EO</span><div class="task-text">AEO implementation — all FAQ sections restructured for Google AI Overview capture</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SAG·EO</span><div class="task-text">Entity optimization — ensure Google knows Susrutha is a distinct, verifiable Ayurveda entity (structured data, Wikidata consideration)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">2 blog articles — authoritative Ayurveda treatment comparisons targeting AI Overview queries</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Backlink outreach — 5 targeted placements: Kerala Tourism blogs, Ayurveda associations, health publications</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 5–6 — Authority + International</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Psoriasis & Skin Conditions page (national search volume)</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Create Developmental Paediatrics page (autism, developmental disorders — high emotional intent)</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">BookRetreats.com, TripAdvisor Wellness, Wellness Tourism World listings for Ayur Gramam</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">IndiaMedAssist, MedicalTourism.com — international patient directories</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">4 blog articles (Months 5–6) — continuing authority content, case-study style treatment stories</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Bi-monthly analytics review — ranking movement, traffic sources, conversion actions</div></div>
+    </div>
+  </div>
+
+  <!-- 12 MONTHS -->
+  <div id="tab-d365" class="tab-panel">
+    <div class="exec-strip">
+      <div class="exec-metric"><div class="em-val">25+</div><div class="em-lbl">Pages Ranking</div></div>
+      <div class="exec-metric"><div class="em-val">24+</div><div class="em-lbl">Blog Articles</div></div>
+      <div class="exec-metric"><div class="em-val">8–10x</div><div class="em-lbl">Organic Traffic Est.</div></div>
+      <div class="exec-metric"><div class="em-val">Global</div><div class="em-lbl">AI Citation Presence</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 7–9 — Compound Growth</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">4 articles/month — specialist condition pages (Diabetes, Migraine, Arthritis, Obesity)</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Video SEO — optimize existing YouTube video descriptions for Ayurveda procedure keywords</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Patient testimonial page — structured case study format (with full consent), SEO rich</div></div>
+      <div class="task-item"><span class="task-tag tag-dr">DOCTOR</span><div class="task-text">Doctor Q&A articles — monthly format attributed to each doctor, builds E-E-A-T</div></div>
+    </div>
+
+    <div class="task-group">
+      <div class="task-group-title">Month 10–12 — International Dominance</div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">GCC/NRI-targeted content — Arabic-search signals, Gulf patient journey content</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">European market content — UK/Germany/France patients — Ayurveda retreat positioning</div></div>
+      <div class="task-item"><span class="task-tag tag-seo">SEO</span><div class="task-text">Annual SEO performance audit — full review, strategy refresh for Year 2</div></div>
+      <div class="task-item"><span class="task-tag tag-content">CONTENT</span><div class="task-text">Year 2 roadmap proposal — based on what performed, what to double down on</div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ——— SECTION 9: KPIs ——— -->
+<div class="section" id="kpis">
+  <div class="section-label">Success Metrics</div>
+  <h2 class="section-title">What <em>success looks like</em> — measurable, month by month</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="phase">Month 1</div><div class="num">100%</div><div class="metric">Critical errors fixed (meta, broken links, schema)</div></div>
+    <div class="kpi-card"><div class="phase">Month 2</div><div class="num">3–5</div><div class="metric">New keywords entering Google top 30 positions</div></div>
+    <div class="kpi-card"><div class="phase">Month 3</div><div class="num">+60%</div><div class="metric">Organic traffic increase from baseline</div></div>
+    <div class="kpi-card"><div class="phase">Month 4</div><div class="num">Top 10</div><div class="metric">Ranking for "ayurveda kattakada" and 3+ branded terms</div></div>
+    <div class="kpi-card"><div class="phase">Month 6</div><div class="num">3x</div><div class="metric">Organic traffic vs. pre-engagement baseline</div></div>
+    <div class="kpi-card"><div class="phase">Month 6</div><div class="num">5+</div><div class="metric">Featured snippets / AI Overview appearances</div></div>
+    <div class="kpi-card"><div class="phase">Month 9</div><div class="num">Top 5</div><div class="metric">Ranking for "panchakarma hospital trivandrum"</div></div>
+    <div class="kpi-card"><div class="phase">Month 12</div><div class="num">8–10x</div><div class="metric">Organic traffic vs. baseline; international enquiries visible</div></div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:40px;">
+    <h4>What We Track Monthly</h4>
+    <p>Every month you receive a clean report covering: keyword ranking movements (tracked keywords list), organic traffic (Google Search Console), top performing pages, new backlinks acquired, content published, and next month's plan. No jargon — real numbers, real impact.</p>
+  </div>
+
+  <!-- RISK TABLE -->
+  <h3 style="font-family:'Cormorant Garamond';font-size:26px;color:var(--forest);margin-top:48px;margin-bottom:8px;">Risk Register</h3>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:0;">Honest assessment of risks and how we manage them.</p>
+  <table class="risk-table">
+    <thead><tr><th>Risk</th><th>Severity</th><th>Likelihood</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Content approval delays from doctors' team slow down publishing schedule</td>
+        <td><span class="sev sev-mid">Medium</span></td>
+        <td>Medium</td>
+        <td>We draft all content — you only review and approve. A 48-hour review window is all we need.</td>
+      </tr>
+      <tr>
+        <td>Existing website CMS/PHP limitations slow technical SEO implementation</td>
+        <td><span class="sev sev-mid">Medium</span></td>
+        <td>Medium</td>
+        <td>We audit the tech stack in Week 1. If access is limited, we adapt strategy to what's implementable without code access.</td>
+      </tr>
+      <tr>
+        <td>Rankings take longer than projected in high-competition terms</td>
+        <td><span class="sev sev-low">Low</span></td>
+        <td>Medium</td>
+        <td>We lead with low-competition, high-specificity keywords first. Traffic grows even if top-volume keywords take longer.</td>
+      </tr>
+      <tr>
+        <td>Google algorithm update impacts ranking during engagement</td>
+        <td><span class="sev sev-mid">Medium</span></td>
+        <td>Low</td>
+        <td>Our approach follows Google's own E-E-A-T guidelines — updates that harm spammy sites benefit well-structured, credentialed medical content like Susrutha's.</td>
+      </tr>
+      <tr>
+        <td>Competitor (Pankajakasthuri) responds with increased SEO investment</td>
+        <td><span class="sev sev-low">Low</span></td>
+        <td>Low</td>
+        <td>Susrutha's niche specialties (Piles surgery, Women's OBG, Ayur Gramam) are not areas Pankajakasthuri can claim — we dominate those flanks.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ——— SECTION 10: PRICING ——— -->
+<div class="section-bg-dark" id="pricing">
+<div class="section">
+  <div class="section-label" style="color:var(--sage);">Investment</div>
+  <h2 class="section-title light">Choose your <em>engagement level</em></h2>
+  <p class="section-body light" style="margin-bottom:48px;">All packages are monthly retainers. No lock-in beyond 3 months. We earn the renewal every month. Prices are exclusive of GST.</p>
+
+  <div class="pricing-grid">
+
+    <!-- FOUNDATION -->
+    <div class="price-card">
+      <div class="price-card-header">
+        <div class="pkg">Foundation</div>
+        <div class="name">Roots</div>
+        <div class="price-amount">
+          <span class="price-symbol">₹</span>
+          <span class="price-num">18,000</span>
+        </div>
+        <div class="price-period">per month + GST</div>
+      </div>
+      <div class="price-card-body">
+        <div class="feature-item"><span class="chk">✓</span>Full meta titles + descriptions (all existing pages)</div>
+        <div class="feature-item"><span class="chk">✓</span>Schema markup — MedicalOrganization, Physician, LocalBusiness</div>
+        <div class="feature-item"><span class="chk">✓</span>Homepage + About Us + Doctors page content rewrite</div>
+        <div class="feature-item"><span class="chk">✓</span>Kowdiar branch page full rewrite</div>
+        <div class="feature-item"><span class="chk">✓</span>Technical error fixes (broken links, maps, spelling)</div>
+        <div class="feature-item"><span class="chk">✓</span>Google Search Console setup + monitoring</div>
+        <div class="feature-item"><span class="chk">✓</span>2 off-site profile updates (Kerala Tourism, Practo)</div>
+        <div class="feature-item"><span class="chk">✓</span>1 blog article per month</div>
+        <div class="feature-item"><span class="chk">✓</span>Monthly ranking + traffic report</div>
+      </div>
+      <div class="price-card-footer">
+        <button class="price-cta ghost">Best for: Start small, see results</button>
+      </div>
+    </div>
+
+    <!-- GROWTH — FEATURED -->
+    <div class="price-card featured">
+      <div class="price-card-header">
+        <div class="featured-badge">Recommended</div>
+        <div class="pkg">Growth</div>
+        <div class="name">Heritage</div>
+        <div class="price-amount">
+          <span class="price-symbol">₹</span>
+          <span class="price-num">28,000</span>
+        </div>
+        <div class="price-period">per month + GST</div>
+      </div>
+      <div class="price-card-body">
+        <div class="feature-item"><span class="chk">✓</span>Everything in Foundation, plus:</div>
+        <div class="feature-item"><span class="chk">✓</span>6 new specialty pillar pages (Panchakarma, Women's Health, Back/Joints, Psoriasis, Piles, NRI Patients)</div>
+        <div class="feature-item"><span class="chk">✓</span>2 blog articles per month (SEO-optimized, condition-targeted)</div>
+        <div class="feature-item"><span class="chk">✓</span>Ayur Gramam resort landing page + booking flow copy</div>
+        <div class="feature-item"><span class="chk">✓</span>All 3 doctor bio expansion + Practo profiles (Dr. Sreeja + Dr. Priyanka)</div>
+        <div class="feature-item"><span class="chk">✓</span>FAQ schema on all pillar pages</div>
+        <div class="feature-item"><span class="chk">✓</span>Internal linking architecture</div>
+        <div class="feature-item"><span class="chk">✓</span>Monthly directory submissions (3 new/month)</div>
+        <div class="feature-item"><span class="chk">✓</span>Keyword ranking tracker (30 keywords monitored)</div>
+        <div class="feature-item"><span class="chk">✓</span>Bi-monthly strategy call (30 min)</div>
+      </div>
+      <div class="price-card-footer">
+        <button class="price-cta primary">Best for: Real results, 6-month horizon</button>
+      </div>
+    </div>
+
+    <!-- AUTHORITY -->
+    <div class="price-card">
+      <div class="price-card-header">
+        <div class="pkg">Authority + SAG·EO</div>
+        <div class="name">Legacy</div>
+        <div class="price-amount">
+          <span class="price-symbol">₹</span>
+          <span class="price-num">45,000</span>
+        </div>
+        <div class="price-period">per month + GST</div>
+      </div>
+      <div class="price-card-body">
+        <div class="feature-item"><span class="chk">✓</span>Everything in Heritage, plus:</div>
+        <div class="feature-item"><span class="chk">✓</span>SAG·EO framework activation (AEO + GEO layers)</div>
+        <div class="feature-item"><span class="chk">✓</span>4 blog articles per month</div>
+        <div class="feature-item"><span class="chk">✓</span>AI citation optimization — content written to be cited by ChatGPT/Gemini/Perplexity</div>
+        <div class="feature-item"><span class="chk">✓</span>Google AI Overview targeting — structured answers for AI search boxes</div>
+        <div class="feature-item"><span class="chk">✓</span>Backlink outreach — 5 quality links/month from health + tourism publications</div>
+        <div class="feature-item"><span class="chk">✓</span>International patient directory presence (10+ platforms)</div>
+        <div class="feature-item"><span class="chk">✓</span>Video SEO (YouTube metadata optimization)</div>
+        <div class="feature-item"><span class="chk">✓</span>80 keywords monitored</div>
+        <div class="feature-item"><span class="chk">✓</span>Weekly progress updates + monthly strategy call (60 min)</div>
+      </div>
+      <div class="price-card-footer">
+        <button class="price-cta ghost">Best for: International reach, AI search dominance</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SEO → SAGEO UPGRADE PATHWAY -->
+  <div style="margin-top:64px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-size:11px;letter-spacing:3px;color:var(--sage);text-transform:uppercase;font-weight:600;margin-bottom:12px;">The Natural Progression</div>
+      <h3 style="font-family:'Cormorant Garamond';font-size:38px;font-weight:300;color:var(--white);line-height:1.2;">Start with SEO. Evolve to <em style="color:var(--gold);">SAG·EO.</em></h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:14px;max-width:680px;margin:16px auto 0;line-height:1.8;">We never recommend SAG·EO before the SEO foundation is solid. Months 1–2 are about fixing what's broken and building what's missing. From Month 3 onwards — when your pages are indexed, your content is structured, and Google is already taking notice — that's when activating SAG·EO delivers exponential returns. Not before.</p>
+    </div>
+
+    <!-- Upgrade Journey Visual -->
+    <div style="display:flex;align-items:stretch;gap:0;margin-bottom:48px;border:1px solid rgba(184,148,58,0.15);border-radius:6px;overflow:hidden;">
+      <div style="flex:1;padding:28px 24px;background:rgba(255,255,255,0.04);border-right:1px solid rgba(184,148,58,0.15);text-align:center;">
+        <div style="font-family:'Bebas Neue';font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-bottom:8px;">MONTH 1–2</div>
+        <div style="font-family:'Bebas Neue';font-size:28px;color:var(--teal);letter-spacing:1px;margin-bottom:8px;">SEO ONLY</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;">Fix errors · Build pages · Structure content · Submit to Google · Get indexed</div>
+        <div style="margin-top:16px;background:rgba(91,168,168,0.1);border:1px solid rgba(91,168,168,0.2);border-radius:4px;padding:10px;font-size:11px;color:var(--teal);font-weight:600;letter-spacing:1px;">ROOTS or HERITAGE PACKAGE</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:0 8px;background:rgba(184,148,58,0.05);">
+        <div style="font-size:24px;color:var(--gold);">→</div>
+      </div>
+      <div style="flex:1;padding:28px 24px;background:rgba(255,255,255,0.04);border-right:1px solid rgba(184,148,58,0.15);text-align:center;">
+        <div style="font-family:'Bebas Neue';font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-bottom:8px;">MONTH 3+</div>
+        <div style="font-family:'Bebas Neue';font-size:28px;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">UPGRADE TO SAG·EO</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;">AEO activation · GEO content · AI citation targeting · Entity authority</div>
+        <div style="margin-top:16px;background:rgba(184,148,58,0.1);border:1px solid rgba(184,148,58,0.25);border-radius:4px;padding:10px;font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;">SWITCH TO SAG·EO PACKAGE</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:0 8px;background:rgba(184,148,58,0.05);">
+        <div style="font-size:24px;color:var(--gold);">→</div>
+      </div>
+      <div style="flex:1;padding:28px 24px;background:rgba(184,148,58,0.06);text-align:center;">
+        <div style="font-family:'Bebas Neue';font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-bottom:8px;">MONTH 6+</div>
+        <div style="font-family:'Bebas Neue';font-size:28px;color:var(--gold-light);letter-spacing:1px;margin-bottom:8px;">FULL DOMINANCE</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;">Ranking · AI Overviews · ChatGPT citations · International patients · Compounding</div>
+        <div style="margin-top:16px;background:rgba(184,148,58,0.12);border:1px solid rgba(184,148,58,0.3);border-radius:4px;padding:10px;font-size:11px;color:var(--gold-light);font-weight:600;letter-spacing:1px;">SAG·EO DOMINANCE PACKAGE</div>
+      </div>
+    </div>
+
+    <!-- SAG·EO Packages -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="display:inline-block;background:rgba(184,148,58,0.12);border:1px solid rgba(184,148,58,0.3);color:var(--gold);padding:5px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;border-radius:2px;font-weight:600;margin-bottom:16px;">FlumenX Exclusive Product</div>
+      <h3 style="font-family:'Cormorant Garamond';font-size:32px;font-weight:300;color:var(--white);">SAG·EO Packages — <em style="color:var(--gold);">Available from Month 3</em></h3>
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:8px;">Next-gen optimization for Google AI Overviews + Chat/AI Search + Traditional Rankings</p>
+    </div>
+
+    <!-- SAG·EO Three Tiers -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:24px;">
+
+      <!-- SAG·EO Core -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden;">
+        <div style="padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:10px;letter-spacing:3px;color:var(--teal);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Starter</div>
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:var(--white);font-weight:300;margin-bottom:12px;">SAG·EO Core</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="color:var(--gold);font-size:18px;font-weight:600;">₹</span>
+            <span style="font-family:'Bebas Neue';font-size:44px;color:var(--gold);line-height:1;">35,000</span>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:2px;">per month + GST</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:600;">What's included</div>
+          <div class="sageo-pkg-feature">Technical SEO Audit + Fixes</div>
+          <div class="sageo-pkg-feature">Information Architecture <span class="sageo-sub">Basic clustering</span></div>
+          <div class="sageo-pkg-feature">Schema / Structured Data <span class="sageo-sub">Essential types</span></div>
+          <div class="sageo-pkg-feature">Question Inventory <span class="sageo-sub">50 questions</span></div>
+          <div class="sageo-pkg-feature">Answer-First Pages <span class="sageo-sub">5 pages/month</span></div>
+          <div class="sageo-pkg-feature">Citable Content Upgrades <span class="sageo-sub">2 pieces/month</span></div>
+          <div class="sageo-pkg-feature">Brand Entity Footprint <span class="sageo-sub">Basic setup</span></div>
+          <div class="sageo-pkg-feature">AI Visibility Tracking <span class="sageo-sub">Monthly report</span></div>
+          <div class="sageo-pkg-feature">Rankings & Traffic Reports</div>
+        </div>
+        <div style="padding:16px 24px 24px;">
+          <div style="border:1.5px solid rgba(91,168,168,0.4);border-radius:2px;padding:12px;text-align:center;font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--teal);text-transform:uppercase;">Upgrade from Roots Package</div>
+        </div>
+      </div>
+
+      <!-- SAG·EO Scale — Best Value -->
+      <div style="background:linear-gradient(160deg,rgba(184,148,58,0.08),rgba(91,168,168,0.05));border:2px solid var(--gold);border-radius:6px;overflow:hidden;transform:scale(1.02);box-shadow:0 8px 40px rgba(184,148,58,0.15);">
+        <div style="padding:28px 24px 20px;border-bottom:1px solid rgba(184,148,58,0.2);position:relative;">
+          <div style="position:absolute;top:14px;right:14px;background:var(--gold);color:var(--forest);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:50px;">Best Value</div>
+          <div style="font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Growth</div>
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:var(--white);font-weight:300;margin-bottom:12px;">SAG·EO Scale</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="color:var(--gold);font-size:18px;font-weight:600;">₹</span>
+            <span style="font-family:'Bebas Neue';font-size:44px;color:var(--gold);line-height:1;">55,000</span>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:2px;">per month + GST</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:600;">What's included</div>
+          <div class="sageo-pkg-feature">Technical SEO Audit + Fixes</div>
+          <div class="sageo-pkg-feature">Information Architecture <span class="sageo-sub">Complete clustering</span></div>
+          <div class="sageo-pkg-feature">Schema / Structured Data <span class="sageo-sub">All relevant types</span></div>
+          <div class="sageo-pkg-feature">Question Inventory <span class="sageo-sub">150 questions</span></div>
+          <div class="sageo-pkg-feature">Answer-First Pages <span class="sageo-sub">10 pages/month</span></div>
+          <div class="sageo-pkg-feature">Citable Content Upgrades <span class="sageo-sub">5 pieces/month</span></div>
+          <div class="sageo-pkg-feature">Brand Entity Footprint <span class="sageo-sub">Complete setup</span></div>
+          <div class="sageo-pkg-feature">AI Visibility Tracking <span class="sageo-sub">Bi-weekly report</span></div>
+          <div class="sageo-pkg-feature">Rankings & Traffic Reports</div>
+        </div>
+        <div style="padding:16px 24px 24px;">
+          <div style="background:var(--gold);border-radius:2px;padding:12px;text-align:center;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--forest);text-transform:uppercase;">Recommended from Month 3</div>
+        </div>
+      </div>
+
+      <!-- SAG·EO Dominance -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden;">
+        <div style="padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:10px;letter-spacing:3px;color:var(--gold-light);text-transform:uppercase;font-weight:600;margin-bottom:8px;">International</div>
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:var(--white);font-weight:300;margin-bottom:12px;">SAG·EO Dominance</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="color:var(--gold);font-size:18px;font-weight:600;">₹</span>
+            <span style="font-family:'Bebas Neue';font-size:44px;color:var(--gold);line-height:1;">85,000</span>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:2px;">per month + GST</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:600;">What's included</div>
+          <div class="sageo-pkg-feature">Technical SEO Audit + Fixes</div>
+          <div class="sageo-pkg-feature">Information Architecture <span class="sageo-sub">Advanced clustering</span></div>
+          <div class="sageo-pkg-feature">Schema / Structured Data <span class="sageo-sub">All types + custom</span></div>
+          <div class="sageo-pkg-feature">Question Inventory <span class="sageo-sub">Unlimited questions</span></div>
+          <div class="sageo-pkg-feature">Answer-First Pages <span class="sageo-sub">20 pages/month</span></div>
+          <div class="sageo-pkg-feature">Citable Content Upgrades <span class="sageo-sub">10 pieces/month</span></div>
+          <div class="sageo-pkg-feature">Brand Entity Footprint <span class="sageo-sub">Premium setup</span></div>
+          <div class="sageo-pkg-feature">AI Visibility Tracking <span class="sageo-sub">Weekly report</span></div>
+          <div class="sageo-pkg-feature">Rankings & Traffic Reports</div>
+        </div>
+        <div style="padding:16px 24px 24px;">
+          <div style="border:1.5px solid rgba(201,168,76,0.4);border-radius:2px;padding:12px;text-align:center;font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--gold-light);text-transform:uppercase;">For Full International Reach</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Important Notes from the package image -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:24px 28px;">
+      <div style="font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:14px;">Important Notes</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;">
+        <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);">
+          <span style="color:var(--teal);flex-shrink:0;">•</span>3-month minimum recommended — systems need time to build authority
+        </div>
+        <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);">
+          <span style="color:var(--teal);flex-shrink:0;">•</span>Content volume & backlinks vary by industry competitiveness
+        </div>
+        <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);">
+          <span style="color:var(--teal);flex-shrink:0;">•</span>AI feature inclusion is not guaranteed, but we optimize for eligibility and citation likelihood
+        </div>
+        <div style="display:flex;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);">
+          <span style="color:var(--teal);flex-shrink:0;">•</span>SAG·EO is exclusive to FlumenX clients only
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Website Maintenance Add-on -->
+  <div style="margin-top:40px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,148,58,0.2);border-radius:4px;padding:32px;">
+    <div style="font-size:11px;letter-spacing:3px;color:var(--sage);text-transform:uppercase;margin-bottom:12px;font-weight:600;">Optional Add-On</div>
+    <h3 style="font-family:'Cormorant Garamond';font-size:26px;color:var(--white);margin-bottom:8px;">Website Maintenance & Support</h3>
+    <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:20px;">If you need ongoing technical support for the existing website (PHP updates, server monitoring, bug fixes, minor UI changes, new page additions beyond the SEO scope), we offer:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:20px;">
+        <div style="font-family:'Bebas Neue';font-size:32px;color:var(--gold);">₹5,000</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:1px;">/ month · Basic</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;">Bug fixes, minor text updates, form checks, monthly backup</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(184,148,58,0.2);border-radius:4px;padding:20px;">
+        <div style="font-family:'Bebas Neue';font-size:32px;color:var(--gold);">₹10,000</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:1px;">/ month · Full Support</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:8px;">All basic + new page builds, UI improvements, speed optimization, hosting support</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:16px;font-style:italic;">Note: Website maintenance is billed separately and is purely optional. Our SEO/content work does not require maintenance access unless you want changes directly implemented on the server.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ——— NEXT STEPS ——— -->
+<div class="section">
+  <div class="section-label">Next Steps</div>
+  <h2 class="section-title">Ready when <em>Susrutha is</em></h2>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px;">
+    <div style="background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:4px;padding:28px;text-align:center;">
+      <div style="font-family:'Bebas Neue';font-size:48px;color:var(--gold);line-height:1;">01</div>
+      <h4 style="font-family:'Cormorant Garamond';font-size:20px;color:var(--forest);margin:8px 0;">Choose Package</h4>
+      <p style="font-size:13px;color:var(--muted);">Select the engagement level that fits the current budget and goals. We recommend Heritage to start.</p>
+    </div>
+    <div style="background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:4px;padding:28px;text-align:center;">
+      <div style="font-family:'Bebas Neue';font-size:48px;color:var(--gold);line-height:1;">02</div>
+      <h4 style="font-family:'Cormorant Garamond';font-size:20px;color:var(--forest);margin:8px 0;">Website Access</h4>
+      <p style="font-size:13px;color:var(--muted);">Grant us view access to Google Search Console + hosting panel. We do a 1-week technical audit before writing begins.</p>
+    </div>
+    <div style="background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:4px;padding:28px;text-align:center;">
+      <div style="font-family:'Bebas Neue';font-size:48px;color:var(--gold);line-height:1;">03</div>
+      <h4 style="font-family:'Cormorant Garamond';font-size:20px;color:var(--forest);margin:8px 0;">Content Brief Call</h4>
+      <p style="font-size:13px;color:var(--muted);">30-minute call with the doctors' team to gather clinical inputs, treatment philosophy, and patient profiles for authentic content.</p>
+    </div>
+    <div style="background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:4px;padding:28px;text-align:center;">
+      <div style="font-family:'Bebas Neue';font-size:48px;color:var(--gold);line-height:1;">04</div>
+      <h4 style="font-family:'Cormorant Garamond';font-size:20px;color:var(--forest);margin:8px 0;">We Begin</h4>
+      <p style="font-size:13px;color:var(--muted);">Week 1 sprint begins within 3 working days of onboarding. You see the first deliverables by Day 7.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ——— FOOTER ——— -->
+<div class="proposal-footer">
+  <div class="brand-mark">FLUMENX</div>
+  <p>Creative Systems · Digital Marketing · SAG·EO · Brand Architecture</p>
+  <p style="margin-top:4px;font-size:12px;color:rgba(255,255,255,0.3);">A Misc Archive Vertical · Trivandrum, Kerala · Udyam Registered Micro Enterprise</p>
+  <div class="contact-row">
+    <div class="contact-item"><span>Phone:</span> +91 8907 634900</div>
+    <div class="contact-item"><span>Email:</span> anoopkrishna@flumenx.com</div>
+    <div class="contact-item"><span>Web:</span> flumenx.com</div>
+    <div class="contact-item"><span>SAG·EO:</span> sageo.flumenx.com</div>
+  </div>
+  <p style="margin-top:32px;font-size:11px;color:rgba(255,255,255,0.2);">This proposal is confidential and prepared exclusively for Susrutha Ayurveda / Dr. K. Krishnakumar. Validity: 30 days from date of issue. All pricing exclusive of GST.</p>
+</div>
+
+<script>
+// ——— SCROLL PROGRESS BAR ———
+const progressFill = document.getElementById('scroll-progress-fill');
+const progressLabel = document.getElementById('scroll-progress-label');
+let labelTimer;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
+  progressFill.style.width = pct + '%';
+
+  // Show label briefly on scroll
+  progressLabel.textContent = pct + '%';
+  progressLabel.style.opacity = pct > 2 && pct < 99 ? '1' : '0';
+  clearTimeout(labelTimer);
+  labelTimer = setTimeout(() => { progressLabel.style.opacity = '0'; }, 1500);
+}, { passive: true });
+
+// ——— TAB SWITCHERS ———
+function switchTab(id) {
+  document.querySelectorAll('#dashboard .tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#dashboard .tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function switchKwTab(id) {
+  document.querySelectorAll('#keywords .tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#keywords .tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('kw-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ——— STICKY NAV ACTIVE STATE ———
+const allSections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.sticky-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  allSections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}, { passive: true });
+</script>
+
+</body>
+</html>
